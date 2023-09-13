@@ -57,7 +57,7 @@ php artisan tinker
 - [x] *Pour les questions 4 et 5, effectuez une recherche des propriétés de "Factory" pour remplir des valeurs telles que des noms, des adresses, des téléphones, etc. (pas de phrases ou de texte aléatoires).*
 - [x] 6. En utilisant les lignes de commande, créer les contrôleurs(1pts)
 ```
-php artisan make:controller EtudiantController
+ php artisan make:controller EtudiantController -m Etudiant 
 
 ```
 

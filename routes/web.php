@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EtudiantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,15 @@ Route::get('/', function () {
 });
 
 
-Route::get( '/blog', [EtudiantController::class, 'index'])->name('etudiant.index');
-Route::get( '/blog/{blogPost}', [EtudiantController::class, 'show'])->name('etudiant.show');
-Route::get( '/blog-create', [EtudiantController::class,'create'])->name('etudiant.create');
-Route::post( '/blog-create', [EtudiantController::class,'store']);
-Route::get( '/blog-edit/{blogPost}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
-Route::put( '/blog-edit/{blogPost}', [EtudiantController::class, 'update']);
-Route::delete( '/blog-edit/{blogPost}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');;
+Route::get( '/index', [EtudiantController::class, 'index'])->name('etudiant.index');
 
-Route::get('/query', [BlogPostController::class, 'query' ]);
+
+// Route::get( '/blog', [EtudiantController::class, 'index'])->name('blog.index');
+Route::get( '/etudiant/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');
+// Route::get( '/blog-create', [EtudiantController::class,'create'])->name('etudiant.create');
+// Route::post( '/blog-create', [EtudiantController::class,'store']);
+Route::get( '/etudiant-edit/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
+// Route::put( '/blog-edit/{blogPost}', [EtudiantController::class, 'update']);
+// Route::delete( '/blog-edit/{blogPost}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');;
+
+// Route::get('/query', [BlogPostController::class, 'query' ]);

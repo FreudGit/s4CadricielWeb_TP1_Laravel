@@ -8,3 +8,4 @@
             <a href="{{route('etudiant.index')}}" class="btn btn-outline-primary">Afficher les étudiants</a>
 
 @endsection
+

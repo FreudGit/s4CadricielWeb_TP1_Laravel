@@ -24,25 +24,25 @@
                 <div class="card-body">
                     <div class="control-grup col-12">
                         <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" class="form-control" value="">
+                        <input type="text" id="nom" name="nom" class="form-control" value="" required>
                     </div>
 
                     <div class="control-grup col-12">
                         <label for="adresse">Date de naissance</label>
                         <input type="text" id="adresse" name="date_de_naissance" class="form-control"
-                            value="">
+                            value="" required>
                     </div>
 
 
                     <div class="control-grup col-12">
                         <label for="adresse">Adresse</label>
                         <input type="text" id="adresse" name="adresse" class="form-control"
-                            value="">
+                            value="" required>
                     </div>
 
                     <div class="control-grup col-12">
                         <label for="ville_id">Ville</label>
-                        <select name="ville_id" id="ville_id" class="form-control">
+                        <select name="ville_id" id="ville_id" class="form-control" required>
                             <option value="">Choisir une ville</option>
                             @forelse($villes as $ville)
                                 //selected if = ville_id
@@ -54,20 +54,18 @@
 
                             @endforelse
                         </select>
-
-                           
                     </div>
 
                     <div class="control-grup col-12">
                         <label for="email">Courriel</label>
                         <input type="text" id="email" name="email" class="form-control"
-                            value="">
+                            value="" required>
                     </div>
 
                     <div class="control-grup col-12">
                         <label for="phone">Telephone</label>
                         <input type="text" id="phone" name="phone" class="form-control"
-                            value="">
+                            value="" required>
                     </div>
                 </div>
                 <div class="card-footer">

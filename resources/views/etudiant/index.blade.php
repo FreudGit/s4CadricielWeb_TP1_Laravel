@@ -43,7 +43,7 @@
                                 <div>
                                     <a href="{{ route('etudiant.show', $etudiant->id) }}"
                                         class="btn btn-primary btn-sm">Infos</a>
-                                    <a href="{{ route('etudiant.show', $etudiant->id) }}"
+                                    <a href="{{ route('etudiant.edit', $etudiant->id) }}"
                                         class="btn btn-outline-secondary btn-sm">Éditer</a>
                                 </div>
                             </div>

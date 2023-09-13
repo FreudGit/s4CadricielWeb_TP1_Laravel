@@ -32,7 +32,7 @@
 <hr>
 <div class="row mb-5">
     <div class="col-6">
-        <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-primary">Mettre a
+        <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-primary">Mettre à
             jour</a>
     </div>
     <div class="col-6">

@@ -60,7 +60,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <form action="{w{ route('blog.delete', $blogPost->id) }}" method="post">
+                <form action="{{ route('etudiant.delete', $etudiant->id) }}" method="post">
                     @method('DELETE')
                     @csrf
                     <input type="submit" class="btn btn-danger" value="Supprimer">

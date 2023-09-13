@@ -27,7 +27,7 @@ Route::get( '/etudiant/{etudiant}', [EtudiantController::class, 'show'])->name('
 // Route::get( '/blog-create', [EtudiantController::class,'create'])->name('etudiant.create');
 // Route::post( '/blog-create', [EtudiantController::class,'store']);
 Route::get( '/etudiant-edit/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
-// Route::put( '/blog-edit/{blogPost}', [EtudiantController::class, 'update']);
-// Route::delete( '/blog-edit/{blogPost}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');;
+Route::put( '/etudiant-edit/{etudiant}', [EtudiantController::class, 'update']);
+Route::delete( '/etudiant-edit/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');;
 
 // Route::get('/query', [BlogPostController::class, 'query' ]);

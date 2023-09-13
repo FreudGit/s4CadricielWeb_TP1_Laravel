@@ -54,7 +54,17 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        //
+        $etudiant->update([
+            'nom' => $request->nom,
+            'date_de_naissance' => $request->date_de_naissance,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'adresse' => $request->adresse,
+            'ville_id' => $request->ville_id
+            
+        ]);
+        return redirect(route('etudiant.show', $etudiant->id))->withSuccess('Donnée mise à jour');
+        ;
     }
 
     /**
@@ -62,6 +72,7 @@ class EtudiantController extends Controller
      */
     public function destroy(Etudiant $etudiant)
     {
-        //
+        $etudiant->delete();
+        return redirect(route('etudiant.index'))->withSuccess('Donnée effacée');
     }
 }

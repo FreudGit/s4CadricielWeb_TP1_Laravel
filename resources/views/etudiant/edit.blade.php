@@ -24,8 +24,8 @@
                 <div class="card-body">
 
                     <div class="control-grup col-12">
-                        <label for="title">Nom</label>
-                        <input type="text" id="Nom" name="Nom" class="form-control" value="{{ $etudiant->nom }}">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" class="form-control" value="{{ $etudiant->nom }}">
                     </div>
 
                     <div class="control-grup col-12">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
+use App\Models\Ville;
+
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -12,8 +14,14 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        $items = Etudiant::all();
-        return view('etudiant.index', ['posts' => $items]);
+        // get etidiants and order ny updated_at desc
+        $etudiants = Etudiant::all()
+        ->sortByDesc('updated_at');
+
+        foreach ($etudiants as $etudiant) {
+            $etudiant->ville= $this->getVilleFromID($etudiant->ville_id);
+        }
+        return view('etudiant.index', ['etudiants' => $etudiants]);
     }
 
     /**
@@ -21,7 +29,9 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        //
+        $villes=Ville::all();
+
+        return view('etudiant.create', ['villes' => $villes]);
     }
 
     /**
@@ -29,7 +39,16 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newEtudiant = Etudiant::create([
+            'nom' => $request->nom,
+            'date_de_naissance' => $request->date_de_naissance,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'adresse' => $request->adresse,
+            'ville_id' => $request->ville_id
+
+        ]);
+        return redirect(route('etudiant.index'));
     }
 
     /**
@@ -37,6 +56,10 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
+        //$ville=Ville::find($etudiant->ville_id);
+        //$etudiant->ville=$ville->nom;
+
+        $etudiant->ville= $this->getVilleFromID($etudiant->ville_id);
         return view('etudiant.show', ['etudiant' => $etudiant]);
     }
 
@@ -45,7 +68,8 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        return view('etudiant.edit', ['etudiant' => $etudiant]);
+        $villes=Ville::all();
+        return view('etudiant.edit', ['etudiant' => $etudiant, 'villes' => $villes]);
 
     }
 
@@ -74,5 +98,17 @@ class EtudiantController extends Controller
     {
         $etudiant->delete();
         return redirect(route('etudiant.index'))->withSuccess('Donnée effacée');
+    }
+
+
+    /**
+     * Get ville from ville_id.
+     * @param Int $id
+     * @return String $ville->nom
+     */
+    public function getVilleFromID(Int $id)
+    {
+        $ville=Ville::find($id);
+        return $ville->nom;
     }
 }

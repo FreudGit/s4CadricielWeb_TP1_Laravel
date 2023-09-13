@@ -24,8 +24,8 @@ Route::get( '/index', [EtudiantController::class, 'index'])->name('etudiant.inde
 
 // Route::get( '/blog', [EtudiantController::class, 'index'])->name('blog.index');
 Route::get( '/etudiant/{etudiant}', [EtudiantController::class, 'show'])->name('etudiant.show');
-// Route::get( '/blog-create', [EtudiantController::class,'create'])->name('etudiant.create');
-// Route::post( '/blog-create', [EtudiantController::class,'store']);
+Route::get( '/etudiant-create', [EtudiantController::class,'create'])->name('etudiant.create');
+Route::post( '/etudiant-create', [EtudiantController::class,'store']);
 Route::get( '/etudiant-edit/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
 Route::put( '/etudiant-edit/{etudiant}', [EtudiantController::class, 'update']);
 Route::delete( '/etudiant-edit/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiant.delete');;

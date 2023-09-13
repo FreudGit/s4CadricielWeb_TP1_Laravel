@@ -18,7 +18,7 @@
                 <strong>Adresse: </strong> {{ $etudiant->adresse }}
             </div>
             <div>
-                <strong>Ville: </strong> TOSET {{ $etudiant->ville_id }}
+                <strong>Ville: </strong> {{ $etudiant->ville}}
             </div>
             <div>
                 <strong>Courriel: </strong> {{ $etudiant->email }}

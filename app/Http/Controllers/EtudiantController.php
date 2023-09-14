@@ -14,13 +14,7 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        // get etidiants and order ny updated_at desc
-        //$blogPost=BlogPost::Select()
-
-
-        $etudiants = Etudiant::Select()
-        //->sortByDesc('updated_at')
-        ->paginate(10);
+        $etudiants = Etudiant::orderBy('updated_at', 'DESC')->paginate(10);
 
         foreach ($etudiants as $etudiant) {
             $etudiant->ville= $this->getVilleFromID($etudiant->ville_id);
@@ -34,7 +28,6 @@ class EtudiantController extends Controller
     public function create()
     {
         $villes=Ville::all();
-
         return view('etudiant.create', ['villes' => $villes]);
     }
 
@@ -60,9 +53,6 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
-        //$ville=Ville::find($etudiant->ville_id);
-        //$etudiant->ville=$ville->nom;
-
         $etudiant->ville= $this->getVilleFromID($etudiant->ville_id);
         return view('etudiant.show', ['etudiant' => $etudiant]);
     }
@@ -74,7 +64,6 @@ class EtudiantController extends Controller
     {
         $villes=Ville::all();
         return view('etudiant.edit', ['etudiant' => $etudiant, 'villes' => $villes]);
-
     }
 
     /**
@@ -92,7 +81,6 @@ class EtudiantController extends Controller
             
         ]);
         return redirect(route('etudiant.show', $etudiant->id))->withSuccess('Donnée mise à jour');
-        ;
     }
 
     /**

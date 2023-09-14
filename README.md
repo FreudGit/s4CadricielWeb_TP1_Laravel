@@ -42,8 +42,6 @@ php artisan migrate
 
 - [x] 4. En utilisant les lignes de commande, saisir 15 nouvelles villes(1pts)
 ```
-
-
 php artisan make:factory VilleFactory
   - (updater le schema dans le VilleFactory.php)
 
@@ -62,7 +60,6 @@ php artisan tinker
 - [x] 6. En utilisant les lignes de commande, créer les contrôleurs(1pts)
 ```
  php artisan make:controller EtudiantController -m Etudiant 
-
 ```
 
 - [x] 7. Créez votre layout.blade avec vous CSS, vous devez importer bootstrap (ou

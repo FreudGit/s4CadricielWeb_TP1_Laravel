@@ -10,7 +10,6 @@
             Éditer un étudiant
         </h1>
     </div>
-
 </div>
 
 <hr>

@@ -5,15 +5,14 @@
 
 
     <div class="col-12 text-center pt-2">
-    <a href="{{ route('etudiant.index') }}"
+        <a href="{{ route('etudiant.index') }}"
             class="btn btn-outline-primary btn-sm float-start">Retour à liste d'étudiants</a>
         <h1 class="display-one">
             Ajouter un étudiant
         </h1>
     </div>
-    <!--/col-12-->
 </div>
-<!--/row-->
+
 <hr>
 <div class="row mt-3">
     <div class="col-12">

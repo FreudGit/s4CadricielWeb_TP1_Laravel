@@ -20,11 +20,13 @@
                         <div class="card mb-2">
                             <div class="card-body  text-left">
                                 <h5 class="card-title">{{ $etudiant->nom }}</h5>
-                                <p class="card-text text-left">{{ $etudiant->adresse }} ({{ $etudiant->etudiantHasVille->nom }})</p>
+                                <p class="card-text text-left">{{ $etudiant->adresse }}
+                                    ({{ $etudiant->etudiantHasVille->nom }})</p>
                             </div>
                             <div class="card-footer d-flex justify-content-between align-items-center">
                                 <div>
-                                    <small class="text-body-secondary">Dernière mise-à-jour: {{ $etudiant->updated_at }}</small>
+                                    <small class="text-body-secondary">Dernière mise-à-jour:
+                                        {{ $etudiant->updated_at }}</small>
                                 </div>
                                 <div>
                                     <a href="{{ route('etudiant.show', $etudiant->id) }}"
@@ -38,7 +40,7 @@
                         <li class='text-danger'>Aucun article disponible</li>
                     @endforelse
                 </ul>
-                {{ $etudiants}}
+                {{ $etudiants }}
             </div>
         </div>
     </div>

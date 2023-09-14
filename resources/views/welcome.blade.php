@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="float-start">
-                        <h4>Bienvenur sur ce site informatif et collaboratif!</h4>
+                        <h4 class="mt-2">Bienvenue sur ce site informatif et collaboratif!</h4>
                     </div>
                 </div>
                 <div class="card-body">

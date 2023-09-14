@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Etudiant;
 use App\Models\Ville;
-
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -16,9 +14,12 @@ class EtudiantController extends Controller
     {
         $etudiants = Etudiant::orderBy('updated_at', 'DESC')->paginate(10);
 
-        foreach ($etudiants as $etudiant) {
-            $etudiant->ville= $this->getVilleFromID($etudiant->ville_id);
-        }
+        // Autre approches (fonctionelles) pour ajouter la ville à l'objet étudiant (non utilisée, pour documentation seulement)
+        // foreach ($etudiants as $etudiant) {
+        //     $etudiant->ville= $this->getVilleFromID($etudiant->ville_id);
+        // OU:
+        //     $etudiant->villeb= $etudiant->etudiantHasVille->nom;
+        // }
         return view('etudiant.index', ['etudiants' => $etudiants]);
     }
 
@@ -92,6 +93,10 @@ class EtudiantController extends Controller
         return redirect(route('etudiant.index'))->withSuccess('Donnée effacée');
     }
 
+
+
+    ///////////////////////////////////////////////////
+    // Autre approche pour récupérer la ville à l'objet étudiant (non utilisée, pour documentation seulement)
 
     /**
      * Get ville from ville_id.

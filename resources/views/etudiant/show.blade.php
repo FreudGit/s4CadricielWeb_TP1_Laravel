@@ -11,7 +11,7 @@
         </h1>
     </div>
 </div>
-<!--/row-->
+
 <hr>
 <div class="row mt-3">
     <div class="col-12">
@@ -36,7 +36,7 @@
                             <strong>Adresse: </strong> {{ $etudiant->adresse }}
                         </div>
                         <div>
-                            <strong>Ville: </strong> {{ $etudiant->ville }}
+                            <strong>Ville: </strong> {{ $etudiant->etudiantHasVille->nom }}
                         </div>
                         <div>
                             <strong>Courriel: </strong> {{ $etudiant->email }}

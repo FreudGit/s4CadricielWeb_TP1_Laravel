@@ -11,4 +11,11 @@ class Etudiant extends Model
 
     protected $fillable = ['nom', 'email', 'adresse', 'date_de_naissance', 'phone', 'ville_id'];
 
+
+
+    public function etudiantHasVille(){
+        return $this->hasOne('App\Models\Ville', 'id', 'ville_id');
+
+    }
+
 }

@@ -4,15 +4,15 @@
 
 <div class="row">
     <div class="col-12 text-center pt-2">
-    <a href="{{ route('etudiant.index') }}"
+        <a href="{{ route('etudiant.index') }}"
             class="btn btn-outline-primary btn-sm float-start">Retour à liste d'étudiants</a>
         <h1 class="display-one">
             Éditer un étudiant
         </h1>
     </div>
-    <!--/col-12-->
+
 </div>
-<!--/row-->
+
 <hr>
 <div class="row mt-3">
     <div class="col-12">
@@ -65,8 +65,6 @@
                             <option value="">Aucune ville disponible</option>
                             @endforelse
                         </select>
-
-
                     </div>
 
                     <div class="control-grup col-12">

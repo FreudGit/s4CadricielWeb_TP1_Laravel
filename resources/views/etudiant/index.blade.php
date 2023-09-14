@@ -20,7 +20,7 @@
                         <div class="card mb-2">
                             <div class="card-body  text-left">
                                 <h5 class="card-title">{{ $etudiant->nom }}</h5>
-                                <p class="card-text text-left">{{ $etudiant->adresse }} ({{ $etudiant->ville }})</p>
+                                <p class="card-text text-left">{{ $etudiant->adresse }} ({{ $etudiant->etudiantHasVille->nom }})</p>
                             </div>
                             <div class="card-footer d-flex justify-content-between align-items-center">
                                 <div>
@@ -41,8 +41,6 @@
                 {{ $etudiants}}
             </div>
         </div>
-
-
     </div>
 </div>
 @endsection

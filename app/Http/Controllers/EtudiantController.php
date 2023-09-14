@@ -15,8 +15,12 @@ class EtudiantController extends Controller
     public function index()
     {
         // get etidiants and order ny updated_at desc
-        $etudiants = Etudiant::all()
-        ->sortByDesc('updated_at');
+        //$blogPost=BlogPost::Select()
+
+
+        $etudiants = Etudiant::Select()
+        //->sortByDesc('updated_at')
+        ->paginate(10);
 
         foreach ($etudiants as $etudiant) {
             $etudiant->ville= $this->getVilleFromID($etudiant->ville_id);

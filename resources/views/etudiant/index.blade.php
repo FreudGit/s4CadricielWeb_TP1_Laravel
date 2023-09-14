@@ -53,6 +53,7 @@
                         <li class='text-danger'>Aucun article disponible</li>
                     @endforelse
                 </ul>
+                {{ $etudiants}}
             </div>
         </div>
 

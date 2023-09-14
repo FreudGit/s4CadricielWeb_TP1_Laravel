@@ -30,8 +30,8 @@
                     </div>
 
                     <div class="control-grup col-12">
-                        <label for="adresse">Date de naissance</label>
-                        <input type="text" id="adresse" name="date_de_naissance" class="form-control"
+                        <label for="date_de_naissance">Date de naissance</label>
+                        <input type="date" id="date_de_naissance" name="date_de_naissance" class="form-control"
                             value="{{ $etudiant->date_de_naissance }}" required>
                     </div>
 
@@ -60,13 +60,13 @@
 
                     <div class="control-grup col-12">
                         <label for="email">Courriel</label>
-                        <input type="text" id="email" name="email" class="form-control"
+                        <input type="email" id="email" name="email" class="form-control"
                             value="{{ $etudiant->email }}" required>
                     </div>
 
                     <div class="control-grup col-12">
                         <label for="phone">Telephone</label>
-                        <input type="text" id="phone" name="phone" class="form-control"
+                        <input type="tel" id="phone" name="phone" class="form-control"
                             value="{{ $etudiant->phone }}" required>
                     </div>
 

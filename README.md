@@ -71,7 +71,6 @@ du CSS personnalise) et le concevoir selon vos préférences. (1 pts)
 concepts d'ergonomie, soyez créatif (1pts).
 - [x] 9. Créer un contrôleur “index” et une vue, pour afficher tous les étudiants, avec
 un lien pour sélectionner l'étudiant et le mettre à jour. (2 pts)
-Conception et programmation de sites Web (NWE.0F – 2020) 582-41B-MA – Cadriciel Web
 - [x] 10.Créer un contrôleur “create” et une vue, pour saisir un nouvel étudiant. Le formulaire doit avoir un champ “select” avec toutes les villes qui viennent de la base de données. (2 pts)
 - [x] 11.  Créer un contrôleur “show” et une vue, pour afficher un étudiant sélectionné. (2 pts)
 - [x] 12.Créer un contrôleur “edit” et une vue, pour afficher un étudiant sélectionné dans un formulaire et le mettre à jour. (2 pts)

@@ -1,73 +1,56 @@
 @extends('layouts.layout')
-@section('title', 'Liste des articles')
+@section('title', 'Informations sur étudiant')
 @section('content')
-<hr>
+
 <div class="row">
-    <div class="col-12 pt-2">
-        <a href="{{ route('etudiant.index') }}" class="btn btn-outline-primary btn-sm">Retourner</a>
-        <h4 class="display-4 mt-5">
-            {{ $etudiant->nom }} (ID: {{ $etudiant->id }})
-        </h4>
-        <hr>
-       
-        <p class='d-flex flex-column'>
-            <div>
-                <strong>Date de naissance: </strong> {{ $etudiant->date_de_naissance }}
-            </div>
-            <div>
-                <strong>Adresse: </strong> {{ $etudiant->adresse }}
-            </div>
-            <div>
-                <strong>Ville: </strong> {{ $etudiant->ville}}
-            </div>
-            <div>
-                <strong>Courriel: </strong> {{ $etudiant->email }}
-            </div>
-            <div>
-                <strong>Téléphone: </strong> {{ $etudiant->phone }}
-            </div>
-        </p>
+    <div class="col-12 text-center pt-2">
+        <a href="{{ route('etudiant.index') }}"
+            class="btn btn-outline-primary btn-sm float-start">Retour à liste d'étudiants</a>
+        <h1 class="display-one">
+            Informations sur étudiant
+        </h1>
     </div>
 </div>
+<!--/row-->
 <hr>
-<div class="row mb-5">
-    <div class="col-6">
-        <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-primary">Mettre à
-            jour</a>
-    </div>
-    <div class="col-6">
+<div class="row mt-3">
+    <div class="col-12">
+        <form method="post">
+            @method('PUT')
+            @csrf
+            <div class="card">
+                <div class="card-header">
+                    <div class="float-start">
+                        <h4>Informations sur l'étudiant: {{ $etudiant->nom }}</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class='d-flex flex-column'>
+                        <div>
+                            <strong>Nom: </strong> {{ $etudiant->nom }}
+                        </div>
+                        <div>
+                            <strong>Date de naissance: </strong> {{ $etudiant->date_de_naissance }}
+                        </div>
+                        <div>
+                            <strong>Adresse: </strong> {{ $etudiant->adresse }}
+                        </div>
+                        <div>
+                            <strong>Ville: </strong> {{ $etudiant->ville }}
+                        </div>
+                        <div>
+                            <strong>Courriel: </strong> {{ $etudiant->email }}
+                        </div>
+                        <div>
+                            <strong>Téléphone: </strong> {{ $etudiant->phone }}
+                        </div>
+                    </p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
 
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-            effacer
-        </button>
-
-    </div>
-</div>
-
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Effacer</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
             </div>
-            <div class="modal-body">
-                Voulez-vous vraiment effacer la donnée? {{ $etudiant->nom }}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <form action="{{ route('etudiant.delete', $etudiant->id) }}" method="post">
-                    @method('DELETE')
-                    @csrf
-                    <input type="submit" class="btn btn-danger" value="Supprimer">
-
-                </form>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 @endsection

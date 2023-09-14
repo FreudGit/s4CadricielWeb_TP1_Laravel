@@ -1,25 +1,33 @@
 @extends('layouts.layout')
-@section('title', 'Ajoutre un étudiant')
+@section('title', 'Ajout étudiant')
 @section('content')
-
 <div class="row">
+
+
     <div class="col-12 text-center pt-2">
+    <a href="{{ route('etudiant.index') }}"
+            class="btn btn-outline-primary btn-sm float-start">Retour à liste d'étudiants</a>
         <h1 class="display-one">
-            Ajouter un article
+            Ajouter un étudiant
         </h1>
     </div>
     <!--/col-12-->
 </div>
 <!--/row-->
 <hr>
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <form method='post'>
-                @csrf
+<div class="row mt-3">
+    <div class="col-12">
+        <form method="post">
+
+            @csrf
+            <div class="card">
 
                 <div class="card-header">
-                    Formulaire
+                    <div class="float-start">
+                        <h4>Informations sur l'étudiant</h4>
+                    </div>
+
+
                 </div>
                 <div class="card-body">
                     <div class="control-grup col-12">
@@ -29,15 +37,14 @@
 
                     <div class="control-grup col-12">
                         <label for="date_de_naissance">Date de naissance</label>
-                        <input type="date" id="date_de_naissance" name="date_de_naissance" class="form-control"
-                            value="" required>
+                        <input type="date" id="date_de_naissance" name="date_de_naissance" class="form-control" value=""
+                            required>
                     </div>
 
 
                     <div class="control-grup col-12">
                         <label for="adresse">Adresse</label>
-                        <input type="text" id="adresse" name="adresse" class="form-control"
-                            value="" required>
+                        <input type="text" id="adresse" name="adresse" class="form-control" value="" required>
                     </div>
 
                     <div class="control-grup col-12">
@@ -46,33 +53,41 @@
                             <option value="">Choisir une ville</option>
                             @forelse($villes as $ville)
                                 //selected if = ville_id
-                                <option value="{{ $ville->id }}" >{{ $ville->nom }} </option>
-
-
-                        @empty
-                            <option value="">Aucune ville disponible</option>
-
+                                <option value="{{ $ville->id }}">{{ $ville->nom }} </option>
+                            @empty
+                                <option value="">Aucune ville disponible</option>
                             @endforelse
                         </select>
+
+
                     </div>
 
                     <div class="control-grup col-12">
                         <label for="email">Courriel</label>
-                        <input type="email" id="email" name="email" class="form-control"
-                            value="" required>
+                        <input type="email" id="email" name="email" class="form-control" value="" required>
                     </div>
 
                     <div class="control-grup col-12">
                         <label for="phone">Telephone</label>
-                        <input type="tel" id="phone" name="phone" class="form-control"
-                            value="" required>
+                        <input type="tel" id="phone" name="phone" class="form-control" value="" required>
+                    </div>
+
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div>
+
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-success" value='Sauvegarder'>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <input type="submit" class="btn btn-success">
-                </div>
-            </form>
-        </div>
+
+            </div>
+        </form>
+
     </div>
 </div>
+
+
+
 @endsection

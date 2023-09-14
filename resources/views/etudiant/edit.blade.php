@@ -1,32 +1,43 @@
 @extends('layouts.layout')
-<blade
-    section|(%26%2339%3Btitle%26%2339%3B%2C%20%26%2339%3BMettre%20%C3%A0%20jour%20%26%2339%3B.%20%24etudiant-%3Enom%20) />
+@section('title', 'Éditer un étudiant')
 @section('content')
 
 <div class="row">
     <div class="col-12 text-center pt-2">
+    <a href="{{ route('etudiant.index') }}"
+            class="btn btn-outline-primary btn-sm float-start">Retour à liste d'étudiants</a>
         <h1 class="display-one">
-            Mettre a jour
+            Éditer un étudiant
         </h1>
     </div>
     <!--/col-12-->
 </div>
 <!--/row-->
 <hr>
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <form method="post">
-                @method('PUT')
-                @csrf
+<div class="row mt-3">
+    <div class="col-12">
+        <form method="post">
+            @method('PUT')
+            @csrf
+            <div class="card">
+
                 <div class="card-header">
-                    Formulaire
+                    <div class="float-start">
+                        <h4>Informations sur l'étudiant</h4>
+                    </div>
+                    <div class="float-end">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteModal">
+                            effacer
+                        </button>
+                    </div>
+
                 </div>
                 <div class="card-body">
-
                     <div class="control-grup col-12">
                         <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" class="form-control" value="{{ $etudiant->nom }}" required>
+                        <input type="text" id="nom" name="nom" class="form-control" value="{{ $etudiant->nom }}"
+                            required>
                     </div>
 
                     <div class="control-grup col-12">
@@ -66,15 +77,47 @@
 
                     <div class="control-grup col-12">
                         <label for="phone">Telephone</label>
-                        <input type="tel" id="phone" name="phone" class="form-control"
-                            value="{{ $etudiant->phone }}" required>
+                        <input type="tel" id="phone" name="phone" class="form-control" value="{{ $etudiant->phone }}"
+                            required>
                     </div>
 
                 </div>
-                <div class="card-footer">
-                    <input type="submit" class="btn btn-success">
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div>
+                        <small class="text-body-secondary">Dernière mise-à-jour: {{ $etudiant->updated_at }}</small>
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-success" value='Sauvegarder'>
+                    </div>
                 </div>
-            </form>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Effacer</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Voulez-vous vraiment effacer la donnée? {{ $etudiant->nom }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form action="{{ route('etudiant.delete', $etudiant->id) }}" method="post">
+                    @method('DELETE')
+                    @csrf
+                    <input type="submit" class="btn btn-danger" value="Supprimer">
+
+                </form>
+            </div>
         </div>
     </div>
 </div>

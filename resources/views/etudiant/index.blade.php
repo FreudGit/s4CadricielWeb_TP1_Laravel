@@ -3,17 +3,6 @@
 @section('content')
 
 <hr>
-<!-- <div class="row ">
-    <div class="col-md-8">
-        <p>Bonne lecture</p>
-    </div>
-    <div class="col-md-4 text-center">
-        <a hrwef="{ww{ route('blog.create') }}" class='btn btn-primary'>Ajouter</a>
-    </div>
-</div> -->
-
-
-
 <div class="row mt-3">
     <div class="col-12">
         <div class="card">
@@ -24,13 +13,10 @@
                 <div class="float-end">
                     <a href="{{ route('etudiant.create') }}" class="btn btn-dark ml-auto">Ajouter</a>
                 </div>
-
             </div>
             <div class="card-body">
-
                 <ul>
                     @forelse($etudiants as $etudiant)
-
                         <div class="card mb-2">
                             <div class="card-body  text-left">
                                 <h5 class="card-title">{{ $etudiant->nom }}</h5>
@@ -48,7 +34,6 @@
                                 </div>
                             </div>
                         </div>
-
                     @empty
                         <li class='text-danger'>Aucun article disponible</li>
                     @endforelse
